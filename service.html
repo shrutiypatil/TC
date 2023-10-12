@@ -8,15 +8,18 @@
 </head>
 <body>
     <header>
-        <h1>Eternal Connections</h1>
-        <nav>
-            <ul>
-                <li><a href="D:\try\tryhome.html">Home</a></li>
-                <li><a href="D:\a SEM III\OS\TC\aboutus.html">About</a></li>
-                <li><a href="D:\try\service.html">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <nav class="banner">
+            <div class="navbar">
+                <img src="logo.png" class="logo">
+                <ul>
+                    <li><a href="tryhome.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="service.html">Service</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+    
+        </div>
+    </nav>
     </header>
 
     <main>
@@ -27,18 +30,20 @@
 
         <section class="feedback">
             <h2>Give Us Your Feedback</h2>
-            <form id="feedback-form">
+            <form action="https://formsubmit.co/ea0c64784cb18f5d36897b0f34d6ee3b" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" email="email" required>
 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
+                <textarea id="message" message="message" rows="4" required></textarea>
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
+                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
                 <button type="submit">Submit</button>
-            </form>
+            </form> 
         </section>
     </main>
 
