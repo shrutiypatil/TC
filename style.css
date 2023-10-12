@@ -158,14 +158,6 @@
     width: 50%;
 }
 
-header {
-background-color: #333;
-color: #fff;
-padding: 20px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
 
 /* Style the company name */
 header h1 {
@@ -190,7 +182,7 @@ color: #333;
 
 /* Style the header */
 header {
-    background-color: #333;
+    background-color: #2982b9;
     color: #fff;
     padding: 20px;
     display: flex;
@@ -206,10 +198,11 @@ header h1 {
 
 /* Style the navigation menu */
 nav ul {
-    list-style: none;
-    padding: 0;
+    width: 85%;
+    padding: 35px 0;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
+    align-items: center;
+    justify-content: space-between; /* Align items to the right */
 }
 
 nav li {
