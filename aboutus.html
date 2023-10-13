@@ -3,64 +3,168 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eternal Connections</title>
-    <link rel="stylesheet" href="aboutus-styles.css">
+    <title>Eternal Connections - About us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Reset some default browser styles */
+        html, body, div, h1, h2, p, ul, li, a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner{
+    width: 100%;
+    height: 15vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(backgroundaboutus.png);
+    background-size: cover;
+    background-position: center;}
+
+        .banner h1 {
+            font-size: 2.5em;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 120px;
+            cursor: pointer;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #009688;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: width 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        /* Main content styles */
+        .main-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .content {
+            margin-top: 3%;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2%;
+        }
+
+        .sidebar-header {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            color: #009688;
+            margin-bottom: 15px;
+        }
+
+        .sidebar p {
+            color: #333;
+        }
+
+        /* Footer styles */
+        .footer-link {
+            color: #b5bec9;
+            font-size: 0.8em;
+            float: right;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="banner">
-            <div class="navbar">
-                <img src="logo.png" class="logo">
-                <ul>
-                    <li><a href="tryhome.html">Home</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="service.html">Service</a></li>
-                    <li><a href="service.html">Contacts</a></li>
-                </ul>
-    
+    <div class="banner">
+        <div class="navbar">
+            <img src="logo.png" class="logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="service.html">Contacts</a></li>
+            </ul>
         </div>
-    </nav>
+            </div>
 
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <!-- Entries Column -->
             <div class="col-md-8">
-                <!-- Main Image -->
-                <img class="main-image" src="#">
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        <p>Qualified Professionals: We have a network of experienced and certified trauma cleaning experts who are committed to handling each case with the utmost care and professionalism. These professionals are equipped with the skills and knowledge to restore properties to their pre-trauma condition.</p>
+                        
+                        <p>Transparent Process: We believe in clear communication. Our platform facilitates open and honest discussions between clients and cleaners, ensuring that expectations are met and that the entire process is well-documented.</p>
+                        
+                        <p>Supportive Community: Eternal Connections is more than just a service—it's a community. We offer resources, support, and a space for clients to share their experiences and connect with others who may have gone through similar situations.</p>
                 </div>
             </div>
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div class="sidebar">
-                    <div class="sidebar-header">John Doe</div>
-                    <p><b>john at doe.com</b></p>
-                    <p>Random Department<br> University of Randomness<br> Street<br> City <br> Country</p>
-                </div>
-                <!-- Links on the Sidebar -->
-                <div class="sidebar">
-                    <dd><a href="#">Google Scholar</a></dd>
-                    <dd><a href="#">Twitter</a></dd>
-                    <dd><a href="#">LinkedIn</a></dd>
-                </div>
-            </div>
-            <!-- Publications -->
-            <div class="col-md-8">
-                <h2 id="publications">Publications</h2>
-                <strong>Peer-reviewed</strong><br>
-                <ul>
-                    <li class="paper" data-words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-                <strong>Technical Reports</strong><br>
-                <ul>
-                    <li class="paper" data-words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
+
+
         </div>
     </div>
+    
 </body>
 </html>

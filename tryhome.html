@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trauma Cleaners</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        *{box-sizing:border-box;padding:0;margin:0;overflow-x:hidden;}
+        .context{width:100%;position:absolute;top:50vh;}
+        .context h1{text-align:center;color:#D2E0FB;font-size:50px;}
+        .area{background:linear-gradient(to left, #8f94fb, #4e54c8);width:100%;height:100vh;}
+        .circles{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;}
+        .circles li{position:absolute;display:block;list-style:none;width:20px;height:20px;background:rgba(255,255,255,0.2);animation:animate 25s linear infinite;bottom:-150px;}
+        .circles li:nth-child(1){left:25%;width:80px;height:80px;animation-delay:0s;}
+        .circles li:nth-child(2){left:10%;width:20px;height:20px;animation-delay:2s;animation-duration:12s;}
+        .circles li:nth-child(3){left:70%;width:20px;height:20px;animation-delay:4s;}
+        .circles li:nth-child(4){left:40%;width:60px;height:60px;animation-delay:0s;animation-duration:18s;}
+        .circles li:nth-child(5){left:65%;width:20px;height:20px;animation-delay:0s;}
+        .circles li:nth-child(6){left:75%;width:110px;height:110px;animation-delay:3s;}
+        .circles li:nth-child(7){left:35%;width:150px;height:150px;animation-delay:7s;}
+        .circles li:nth-child(8){left:50%;width:25px;height:25px;animation-delay:15s;animation-duration:45s;}
+        .circles li:nth-child(9){left:20%;width:15px;height:15px;animation-delay:2s;animation-duration:35s;}
+        .circles li:nth-child(10){left:85%;width:150px;height:150px;animation-delay:0s;animation-duration:11s;}
+        @keyframes animate{0%{transform:translateY(0)rotate(0deg);opacity:1;border-radius:0;}100%{transform:translateY(-1000px)rotate(720deg);opacity:0;border-radius:50%;}}
+        .layout{margin:0 auto;max-width:1170px;width:100%;padding:0 15px;overflow-x:hidden;}
+        .navbar{margin:auto;padding:auto;display:flex;align-items:center;justify-content:space-between;}
+        .logo{width:120px;cursor:pointer;}
+        .navbar ul li{list-style:none;display:inline-block;margin:0 20px;position:relative;}
+        .navbar ul li a{text-decoration:none;color:#100101;text-transform:uppercase;}
+        .navbar ul li::after{content:'';height:3px;width:0;background:#009688;position:absolute;left:0;bottom:-10px;transition:0.5;}
+        .navbar ul li:hover:after{width:100%;background:#295b9e;}
+        .about{background:#ccd5ae;color:#000;padding:30px 0;}
+        .text-center{text-align:center;}
+        .section-title{color:#fff;font-size:35px;font-weight:bold;text-transform:uppercase;}
+        .icon-text{color:#fff;font:16px/22px "Open Sans",sans-serif;text-align:center;text-transform:uppercase;margin:25px 0;}
+    </style>
 </head>
-
 <body>
-            <div class="navbar">
-                <img src="logo.png" class="logo">
-                <ul>
-                    <li><a href="tryhome.html">Home</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="service.html">Service</a></li>
-                    <li><a href="service.html">Contacts</a></li>
-                </ul>
-    
-        </div>
-</body>
+    <div class="navbar">
+        <img src="logo.png" class="logo">
+        <ul>
+            <li><a href="tryhome.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+    </div>
+
     <div class="context">
         <h1>E T E R N A L - C O N N E C T I O N S</h1>
     </div>
@@ -44,75 +69,11 @@
         <div class="layout">
             <div class="text-center">
                 <h1 class="section-title">About Us</h1>
-                <p>
-                    At Trauma Cleaners, we have a rich history and a strong commitment to serving our community. Founded
-                    in 2005, our journey began with a simple mission: to provide top-notch cleaning services and make a
-                    positive impact on people's lives. Over the years, we've grown and evolved, but our dedication to
-                    excellence and customer satisfaction remains unwavering.
-                </p>
-                <p>
-                    Our team consists of highly trained professionals who are passionate about what they do. We take
-                    pride in our attention to detail and our ability to handle even the most challenging cleaning
-                    tasks with care and precision. Whether it's cleaning up after a traumatic event or restoring a
-                    property to its former glory, we approach every job with empathy and professionalism.
-                </p>
-                <p>
-                    We value the trust our clients place in us and work tirelessly to exceed their expectations. Our
-                    commitment to quality, integrity, and compassion sets us apart in the industry. We believe that a
-                    clean environment contributes to a healthier and happier community, and we're honored to play a
-                    role in making that vision a reality.
-                </p>
+                <p>At Trauma Cleaners, we have a rich history and a strong commitment to serving our community. Founded in 2005, our journey began with a simple mission: to provide top-notch cleaning services and make a positive impact on people's lives. Over the years, we've grown and evolved, but our dedication to excellence and customer satisfaction remains unwavering.</p>
+                <p>Our team consists of highly trained professionals who are passionate about what they do. We take pride in our attention to detail and our ability to handle even the most challenging cleaning tasks with care and precision. Whether it's cleaning up after a traumatic event or restoring a property to its former glory, we approach every job with empathy and professionalism.</p>
+                <p>We value the trust our clients place in us and work tirelessly to exceed their expectations. Our commitment to quality, integrity, and compassion sets us apart in the industry. We believe that a clean environment contributes to a healthier and happier community, and we're honored to play a role in making that vision a reality.</p>
             </div>
         </div>
     </section>
-
-    <div class="container">
-        <ul class="accordion">
-            <li class="tabs">
-                <div class="social-links twitter-icon">
-                    <a href="https://twitter.com">Twitter</a>
-                </div>
-                <div class="paragraph">
-                    <h1>Twitter</h1>
-                    <p>Stay connected and up-to-date with our latest updates by following us on Twitter! When you follow us, you'll receive real-time notifications and stay informed about all the exciting news, events, and developments happening within our community. Don't miss out on the latest insights, promotions, and important announcements. Join our Twitter family today, and be a part of the conversation as we share valuable information, engage with our audience, and keep you in the loop. Follow us now to receive updates and stay connected with us!</p>
-                </div>
-            </li>
-            <li class="tabs">
-                <div class="social-links twitter-icon">
-                    <a href="https://twitter.com">Twitter</a>
-                </div>
-                <div class="paragraph">
-                    <h1>Twitter</h1>
-                    <p>Stay connected and up-to-date with our latest updates by following us on Twitter! When you follow us, you'll receive real-time notifications and stay informed about all the exciting news, events, and developments happening within our community. Don't miss out on the latest insights, promotions, and important announcements. Join our Twitter family today, and be a part of the conversation as we share valuable information, engage with our audience, and keep you in the loop. Follow us now to receive updates and stay connected with us!</p>
-                </div>
-            </li>
-            <li class="tabs">
-                <div class="social-links facebook-icon">
-                    <a href="https://www.facebook.com">Facebook</a>
-                </div>
-                <div class="paragraph">
-                    <h1>Facebook</h1>
-                    <p>Follow us on Facebook to stay connected and up-to-date with all our latest updates and news. By joining our Facebook community, you'll have access to a wealth of information, exciting announcements, and valuable insights. We believe in keeping our followers informed and engaged, and Facebook is one of the best platforms to achieve that. Don't miss out on any important updates; simply hit the 'Follow' button, and you'll be among the first to receive the latest news and stay in the loop with everything happening in our world. Thank you for your continued support, and we look forward to connecting with you on Facebook!</p>
-                </div>
-            </li>
-            <li class="tabs">
-                <div class="social-links linkedin-icon">
-                    <a href="https://www.linkedin.com">LinkedIn</a>
-                </div>
-                <div class="paragraph">
-                    <h1>LinkedIn</h1>
-                    <p>To stay informed and up-to-date with our latest updates, news, and insights, we invite you to follow us on LinkedIn. By becoming part of our LinkedIn community, you'll have access to a wealth of valuable information, industry trends, and exciting developments within our organization. We believe in fostering meaningful connections and sharing knowledge, and our LinkedIn page is the perfect platform to engage with us and stay connected. Don't miss out on the opportunity to receive regular updates and be part of our professional network. Join us on LinkedIn today to receive valuable content and stay updated with everything we have to offer.</p>
-                </div>
-            </li>
-            <li class="tabs">
-                <div class="social-links insta-icon">
-                    <a href="https://www.instagram.com">Instagram</a>
-                </div>
-                <div class="paragraph">
-                    <h1>Instagram</h1>
-                    <p>To stay connected and receive the latest updates from us, we invite you to follow us on Instagram. By becoming a part of our Instagram community, you'll gain access to a world of exciting content, news, and insights. Whether it's exclusive behind-the-scenes peeks, sneak previews of upcoming events, or valuable information, our Instagram feed is your go-to source for staying in the loop. Don't miss out on the opportunity to be informed and engaged – follow us today and be a part of our journey as we share our passion and updates with you!</p>
-                </div>
-            </li>
-        </ul>
-    </div>
+</body>
 </html>

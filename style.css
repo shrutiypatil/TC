@@ -167,9 +167,8 @@ font-size: 36px;
 
 /* Style the header */
 .navbar{
-    width: 85%;
     margin: auto;
-    padding: 35px 0;
+    padding: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -207,6 +206,7 @@ font-size: 36px;
 
 .navbar ul li:hover:after{
     width: 100%;
+    background: #295b9e;
 }
 /* Media query for responsiveness */
 @media screen and (max-width: 768px) {
@@ -220,7 +220,7 @@ font-size: 36px;
     }
 
     .container {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .accordion .tabs {
@@ -361,9 +361,11 @@ body {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-@font-face {
-    font-family: 'Genericons';
-    import { Application } from '@splinetool/runtime';
+    @font-face {
+        font-family: 'Genericons';
+        import { Application } from '@splinetool/runtime';
+    
+    
 
 
 
@@ -390,13 +392,13 @@ body {
 }
 
 [class*="genericon"] {
-    *overflow: auto;
-    *zoom: 1;
-    *display : inline;
+    overflow: auto;
+    zoom: 1;
+    display: inline;
 }
 
 .container {
-    margin: 100px auto;
+    margin: 1px auto;
 }
 
 .about {
@@ -418,7 +420,7 @@ body {
     display: block;
     list-style-type: none;
     overflow: hidden;
-    height: 27vh;
+    height: 2h;
     font-size: 0;
 }
 
