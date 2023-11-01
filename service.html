@@ -15,35 +15,54 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="service.html">Service</a></li>
-                    <li><a href="service.html">Contacts</a></li>
+                    <li><a href="service.html">Volunteer with us</a></li>
                 </ul>
-    
-        </div>
-    </nav>
+            </div>
+        </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Welcome to our Company</h2>
-            <p>We provide top-notch services...</p>
+            <h2>Welcome to Eternal Connections</h2>
+            <p>Do you want to willingly volunteer?</p>
         </section>
 
         <section class="feedback">
             <h2>Give Us Your Feedback</h2>
-            <form action="https://formsubmit.co/ea0c64784cb18f5d36897b0f34d6ee3b" method="POST">
+            <br>
+            <form id="feedback-form" action="https://formspree.io/f/xvojlngw" method="post">
+                <input type="hidden" name="_cc" value="gauripahapale@gmail.com,pehlajrathod@gmail.com,anish.om17@gmail.com">
+                <input type="hidden" name="_subject" value="Organisation 1 {Address of the organisation}">
+                <input type="hidden" name="_template" value="table">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
+                <input type="text" id="name" name="name" required placeholder="John Doe"><br><br>
                 <label for="email">Email:</label>
-                <input type="email" id="email" email="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" message="message" rows="4" required></textarea>
+                <input type="email" id="email" name="email" required placeholder="johndoe@example.com"><br><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required placeholder="30"><br><br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required placeholder="123 Main St, City, Country"><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="123-456-7890"><br><br>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br><br>
+                <label for="education">Education Level:</label>
+                <input type="text" id="education" name="education" required placeholder="Bachelor's Degree"><br><br>
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" required placeholder="Software Engineer"><br><br>
+                <label for="interests">Interests/Hobbies:</label>
+                <input type="text" id="interests" name="interests" required placeholder="Hiking, Painting, Cooking"><br><br>
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" name="message" rows="4" cols="50" placeholder="Any additional information you'd like to provide"></textarea><br><br>
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
-                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+                <input type="hidden" name="_next" value="thankyou.html">
                 <button type="submit">Submit</button>
-            </form> 
+            </form>
         </section>
     </main>
 
@@ -51,6 +70,61 @@
         <p>&copy; 2023 Eternal Connections</p>
     </footer>
 
-    <script src="script.js"></script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const feedbackForm = document.getElementById("feedback-form");
+
+        feedbackForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get values from input elements
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const age = document.getElementById("age").value;
+            const address = document.getElementById("address").value;
+            const phone = document.getElementById("phone").value;
+            const gender = document.getElementById("gender").value;
+            const education = document.getElementById("education").value;
+            const occupation = document.getElementById("occupation").value;
+            const interests = document.getElementById("interests").value;
+            const comments = document.getElementById("comments").value;
+
+            // Create an object with the input values
+            const feedbackData = {
+                name: name,
+                email: email,
+                age: age,
+                address: address,
+                phone: phone,
+                gender: gender,
+                education: education,
+                occupation: occupation,
+                interests: interests,
+                comments: comments,
+            };
+
+            fetch('https://formspree.io/f/xvojlngw', {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(feedbackData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // You can perform actions here based on the response
+                // Redirect to another page after form submission
+                window.location.href = 'http://127.0.0.1:5500/thankyou.html';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            feedbackForm.reset();
+        });
+    });
+</script>
+
 </body>
 </html>

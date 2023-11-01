@@ -72,7 +72,7 @@ header h1 {
     position: absolute;
     left:0;
     bottom: -10px;
-    transition: 0.5;
+    transition: 0.5s;
 }
 
 
@@ -121,7 +121,7 @@ main {
 }
 
 .feedback button[type="submit"] {
-    background-color: #ff6b6b;
+    background-color: #413838;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -131,7 +131,7 @@ main {
 }
 
 .feedback button[type="submit"]:hover {
-    background-color: #f38f8f;
+    background-color: #b1a9a9;
 }
 
 
