@@ -15,7 +15,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="service.html">Service</a></li>
-                    <li><a href="vwu.html.html">Volunteer with us</a></li>
+                    <li><a href="vwu.html">Volunteer with us</a></li>
                 </ul>
             </div>
         </nav>
@@ -24,11 +24,11 @@
     <main>
         <section class="hero">
             <h2>Welcome to Eternal Connections</h2>
-            <p>Do you want to willingly volunteer?</p>
+            <p>Fill the form for us to help you!</p>
         </section>
 
         <section class="feedback">
-            <h2>Give Us Your Feedback</h2>
+            <h2>Enter your request</h2>
             <br>
             <form id="feedback-form" action="https://formspree.io/f/xvojlngw" method="post">
                 <input type="hidden" name="_cc" value="gauripahapale@gmail.com,pehlajrathod@gmail.com,anish.om17@gmail.com">
@@ -52,16 +52,22 @@
                 </select><br><br>
                 <label for="education">Education Level:</label>
                 <input type="text" id="education" name="education" required placeholder="Bachelor's Degree"><br><br>
-                <label for "occupation">Occupation:</label>
+                <label for="occupation">Occupation:</label>
                 <input type="text" id="occupation" name="occupation" required placeholder="Software Engineer"><br><br>
-                <label for="interests">Interests/Hobbies:</label>
-                <input type="text" id="interests" name="interests" required placeholder="Hiking, Painting, Cooking"><br><br>
+                <label for="Interests">Marital Status:</label>
+                <select id="gender" name="gender">
+                    <option value="v"></option>
+                    <option value="male">Single</option>
+                    <option value="female">Married</option>
+                    <option value="other">Prefer not to say</option>
+                </select><br><br>
+               
                 <label for="userLocation">Your Location:</label>
-                <input type="text" id="userLocation" name="userLocation" placeholder="Enter your location" required>
-                <button id="findNearestOrg">Find Nearest Organization</button>
-                <ul id="organizationList">
-                </ul>
-                <label for="comments">Additional Comments:</label>
+                <input type="text" id="userLocation" name="userLocation" placeholder="Enter your location" required> 
+                <button id="findNearestOrg">Find Nearest Organization</button><br>
+                <br><ul id="organizationList">
+                </ul><br>
+                <label for="comments">Tell us your requirements:</label>
                 <textarea id="comments" name="message" rows="4" cols="50" placeholder="Any additional information you'd like to provide"></textarea><br><br>
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
