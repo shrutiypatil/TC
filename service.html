@@ -32,7 +32,7 @@
             <br>
             <form id="feedback-form" action="https://formspree.io/f/xvojlngw" method="post">
                 <input type="hidden" name="_cc" value="gauripahapale@gmail.com,pehlajrathod@gmail.com,anish.om17@gmail.com">
-                <input type="hidden" name="_subject" value="Organisation 1 {Address of the organisation}">
+                <input type="hidden" name="_subject" value="Volunteer Feedback - Location: {userLocation}">
                 <input type="hidden" name="_template" value="table">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required placeholder="John Doe"><br><br>
@@ -52,10 +52,15 @@
                 </select><br><br>
                 <label for="education">Education Level:</label>
                 <input type="text" id="education" name="education" required placeholder="Bachelor's Degree"><br><br>
-                <label for="occupation">Occupation:</label>
+                <label for "occupation">Occupation:</label>
                 <input type="text" id="occupation" name="occupation" required placeholder="Software Engineer"><br><br>
                 <label for="interests">Interests/Hobbies:</label>
                 <input type="text" id="interests" name="interests" required placeholder="Hiking, Painting, Cooking"><br><br>
+                <label for="userLocation">Your Location:</label>
+                <input type="text" id="userLocation" name="userLocation" placeholder="Enter your location" required>
+                <button id="findNearestOrg">Find Nearest Organization</button>
+                <ul id="organizationList">
+                </ul>
                 <label for="comments">Additional Comments:</label>
                 <textarea id="comments" name="message" rows="4" cols="50" placeholder="Any additional information you'd like to provide"></textarea><br><br>
                 <input type="hidden" name="_captcha" value="false">
@@ -70,61 +75,80 @@
         <p>&copy; 2023 Eternal Connections</p>
     </footer>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const feedbackForm = document.getElementById("feedback-form");
+    <script>
+        const organizations = [
+            { name: "Clean Sweep Services", lat: 40.7128, lon: -74.0060 },
+            { name: "Green Cleaners", lat: 34.0522, lon: -118.2437 },
+            { name: "Fresh Start Cleaning", lat: 51.5074, lon: -0.1278 },
+            { name: "Sparkling Clean Co.", lat: 35.6895, lon: 139.6917 },
+            { name: "Dusty Busters", lat: 52.5200, lon: 13.4050 },
+            { name: "Shiny Surfaces", lat: -33.8688, lon: 151.2093 },
+            { name: "Crystal Cleaners", lat: 41.8781, lon: -87.6298 },
+            { name: "Pure Shine Services", lat: 48.8566, lon: 2.3522 },
+            { name: "Gleaming Homes Inc.", lat: 37.7749, lon: -122.4194 },
+            { name: "Sunny Side Cleaners", lat: -22.9083, lon: -43.1964 }
+        ];
 
-        feedbackForm.addEventListener("submit", function (e) {
-            e.preventDefault();
+        document.addEventListener("DOMContentLoaded", function () {
+            const feedbackForm = document.getElementById("feedback-form");
+            const organizationList = document.getElementById("organizationList");
 
-            // Get values from input elements
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const age = document.getElementById("age").value;
-            const address = document.getElementById("address").value;
-            const phone = document.getElementById("phone").value;
-            const gender = document.getElementById("gender").value;
-            const education = document.getElementById("education").value;
-            const occupation = document.getElementById("occupation").value;
-            const interests = document.getElementById("interests").value;
-            const comments = document.getElementById("comments").value;
+            document.getElementById("findNearestOrg").addEventListener("click", function (e) {
+                e.preventDefault();
 
-            // Create an object with the input values
-            const feedbackData = {
-                name: name,
-                email: email,
-                age: age,
-                address: address,
-                phone: phone,
-                gender: gender,
-                education: education,
-                occupation: occupation,
-                interests: interests,
-                comments: comments,
-            };
+                const userLocation = document.getElementById("userLocation").value;
 
-            fetch('https://formspree.io/f/xvojlngw', {  
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(feedbackData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // You can perform actions here based on the response
-                // Redirect to another page after form submission
-                window.location.href = 'http://127.0.0.1:5500/thankyou.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
+                // Use OpenCage Geocoding API to obtain user location coordinates (replace with your own API key)
+                fetch(`https://api.opencagedata.com/geocode/v1/json?q=${userLocation}&key=7737b14473254ebeba287ce154792689`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const userLat = data.results[0].geometry.lat;
+                        const userLon = data.results[0].geometry.lng;
+
+                        // Calculate distances to organizations and find the nearest one
+                        const nearestOrganization = findNearestOrganization(organizations, userLat, userLon);
+
+                        if (nearestOrganization) {
+                            // Display the nearest organization in the results
+                            organizationList.innerHTML = `<li>Nearest Organization: ${nearestOrganization.name}</li>`;
+                        } else {
+                            organizationList.innerHTML = "<li>No organizations found.</li>";
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
             });
 
-            feedbackForm.reset();
-        });
-    });
-</script>
+            function findNearestOrganization(orgList, userLat, userLon) {
+                let nearestOrg = null;
+                let nearestDistance = Infinity;
 
+                orgList.forEach(org => {
+                    const distance = calculateDistance(userLat, userLon, org.lat, org.lon);
+                    if (distance < nearestDistance) {
+                        nearestOrg = org;
+                        nearestDistance = distance;
+                    }
+                });
+
+                return nearestOrg;
+            }
+
+            // Simplified Haversine formula for calculating distances
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371;
+                const dLat = (lat2 - lat1) * (Math.PI / 180);
+                const dLon = (lon2 - lon1) * (Math.PI / 180);
+
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+                return R * c;
+            }
+        });
+    </script>
 </body>
 </html>
